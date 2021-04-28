@@ -31,4 +31,14 @@ describe SecretDiary do
       expect(diary.unlock).to eq('unlocked')
     end
   end
+
+  describe '#add_entry' do
+    context 'when diary is locked' do
+      let (:diary) {SecretDiary.new}
+
+      it 'throws an error' do
+        expect { diary.add_entry('test') }.to raise_error(RuntimeError)
+      end
+    end
+  end
 end

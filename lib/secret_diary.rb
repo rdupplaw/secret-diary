@@ -1,4 +1,9 @@
 class SecretDiary
+  attr_accessor :locked
+  def initialize
+    @locked = true
+  end
+
   def lock
     'locked'
   end
@@ -7,7 +12,8 @@ class SecretDiary
     'unlocked'
   end
 
-  def add_entry
+  def add_entry(text)
+    raise 'Secret Diary is locked' if locked
   end
 
   def get_entries
