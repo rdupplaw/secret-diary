@@ -15,4 +15,12 @@ describe SecretDiary do
       expect(SecretDiary.new()).to respond_to(:get_entries)
     end
   end
+
+  describe '#lock' do
+    let (:diary) {SecretDiary.new}
+
+    it 'returns "locked"' do
+      expect(diary.lock).to eq('locked')
+    end
+  end
 end
