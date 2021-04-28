@@ -23,4 +23,12 @@ describe SecretDiary do
       expect(diary.lock).to eq('locked')
     end
   end
+
+  describe '#unlock' do
+    let (:diary) {SecretDiary.new}
+
+    it 'returns "unlocked"' do
+      expect(diary.unlock).to eq('unlocked')
+    end
+  end
 end
