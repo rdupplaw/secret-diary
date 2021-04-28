@@ -9,11 +9,13 @@ class SecretDiary
   end
 
   def unlock
+    @locked = false
     'unlocked'
   end
 
   def add_entry(text)
     raise 'Secret Diary is locked' if locked
+    'entry added to diary'
   end
 
   def get_entries
