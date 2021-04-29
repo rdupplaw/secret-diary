@@ -6,6 +6,7 @@ class SecretDiary
   end
 
   def lock
+    @locked = true
     'locked'
   end
 
@@ -25,3 +26,4 @@ class SecretDiary
     @entries.length > 1 ? @entries : @entries[0]
   end
 end
+
