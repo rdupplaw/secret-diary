@@ -7,13 +7,6 @@ describe SecretDiary do
     it 'returns "locked"' do
       expect(diary.lock).to eq('locked')
     end
-
-    diary.unlock
-    diary.lock
-
-    it 'sets @locked to true' do
-      expect(diary.locked).to eq(true)
-    end
   end
 
   describe '#unlock' do
@@ -21,13 +14,6 @@ describe SecretDiary do
 
     it 'returns "unlocked"' do
       expect(diary.unlock).to eq('unlocked')
-    end
-
-    diary.lock
-    diary.unlock
-
-    it 'sets @locked to false' do
-      expect(diary.locked).to eq(false)
     end
   end
 

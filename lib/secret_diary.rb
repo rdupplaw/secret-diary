@@ -1,28 +1,29 @@
+require_relative 'lock'
+
 class SecretDiary
-  attr_reader :locked
   def initialize
-    @locked = true
+    @lock = Lock.new
     @entries = []
   end
 
   def lock
-    @locked = true
+    @lock.lock
     'locked'
   end
 
   def unlock
-    @locked = false
+    @lock.unlock
     'unlocked'
   end
 
   def add_entry(text)
-    raise 'Secret Diary is locked' if locked
+    raise 'Secret Diary is locked' if @lock.locked?
     @entries << text
     'entry added to diary'
   end
 
   def get_entries
-    raise 'Secret Diary is locked' if locked
+    raise 'Secret Diary is locked' if @lock.locked?
     @entries.length > 1 ? @entries : @entries[0]
   end
 end
